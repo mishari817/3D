@@ -1,0 +1,161 @@
+import React from "react";
+
+export default function ThreeDSite() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+          <a href="#" className="flex items-center gap-3">
+            {/* Logo: '3' in black, 'D' in red */}
+            <svg width="54" height="36" viewBox="0 0 90 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+              <g transform="translate(2 2)">
+                <text x="0" y="36" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={48} fill="#000">3</text>
+                <text x="42" y="36" fontFamily="Inter, Arial, sans-serif" fontWeight={800} fontSize={48} fill="#ef4444">D</text>
+              </g>
+            </svg>
+            <span className="sr-only">3D</span>
+          </a>
+
+          <nav className="hidden md:flex gap-6 items-center text-sm">
+            <a href="#about" className="hover:text-gray-900">About</a>
+            <a href="#products" className="hover:text-gray-900">Products</a>
+            <a href="#protection" className="hover:text-gray-900">Protection Films</a>
+            <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
+          </nav>
+
+          <div className="md:hidden">
+            <button className="px-3 py-2 rounded-md bg-gray-100">Menu</button>
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-7xl mx-auto px-6 py-12">
+        <section className="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 className="text-4xl font-extrabold leading-tight">3D — Advanced Film Solutions</h1>
+            <p className="mt-4 text-lg text-gray-600">A professional partner in high-performance window films and protective solutions. We combine refined design with practical performance to deliver products that enhance comfort, privacy, and appearance.</p>
+
+            <div className="mt-6 flex gap-4">
+              <a href="#products" className="inline-block px-6 py-3 bg-black text-white rounded-md shadow">Explore Products</a>
+              <a href="#contact" className="inline-block px-6 py-3 border border-gray-200 rounded-md">Get in touch</a>
+            </div>
+          </div>
+
+          <div className="rounded-lg overflow-hidden bg-gradient-to-br from-gray-100 to-white p-8 shadow">
+            <div className="h-56 bg-[url('https://images.unsplash.com/photo-1541447271358-1f9da3c5e1a6?auto=format&fit=crop&w=1200&q=60')] bg-cover bg-center rounded"></div>
+          </div>
+        </section>
+
+        <section id="about" className="mt-16">
+          <h2 className="text-2xl font-bold">About 3D</h2>
+          <p className="mt-3 text-gray-600">3D is a forward-looking company focused on delivering reliable and refined film products for modern vehicles and architectural glass. Our approach emphasizes consistent quality, thoughtful design, and service that adapts to each client's needs. We aim to be a trusted name in protective films and smart tinting solutions.</p>
+        </section>
+
+        <section id="products" className="mt-12">
+          <h2 className="text-2xl font-bold">Carbon Fiber Series</h2>
+          <p className="text-gray-600 mt-2">A selection of carbon-fiber inspired tints that balance visibility, heat control, and aesthetic appeal.</p>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-6">
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Light Shade — VLT: 69.7%</h3>
+              <p className="mt-2 text-sm text-gray-600">A clear carbon fiber tint that provides comfort without darkening your view. It reduces infrared and UV exposure while preserving natural light.</p>
+              <p className="mt-3 text-xs text-gray-500">5‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Medium Shade — VLT: 46.2%</h3>
+              <p className="mt-2 text-sm text-gray-600">Balanced visibility and protection, designed to lower cabin heat while maintaining clarity and a refined look.</p>
+              <p className="mt-3 text-xs text-gray-500">5‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Dark Shade — VLT: 33.8%</h3>
+              <p className="mt-2 text-sm text-gray-600">Offers enhanced privacy and strong performance against infrared and UV radiation, ideal for darker aesthetic preferences.</p>
+              <p className="mt-3 text-xs text-gray-500">5‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Deep Black Shade — VLT: 33.8%</h3>
+              <p className="mt-2 text-sm text-gray-600">Maximum protection for hot environments, reducing glare and improving passenger comfort with superior UV and IR blocking.</p>
+              <p className="mt-3 text-xs text-gray-500">5‑year warranty</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="nano" className="mt-12">
+          <h2 className="text-2xl font-bold">Nano Ceramic Series</h2>
+          <p className="text-gray-600 mt-2">High-performance ceramic films engineered for exceptional heat rejection and optical clarity.</p>
+
+          <div className="mt-6 grid md:grid-cols-2 gap-6">
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Ultra Clear — VLT: 70%</h3>
+              <p className="mt-2 text-sm text-gray-600">Excellent visibility with top-tier protection against infrared and UV, delivering a comfortable interior environment.</p>
+              <p className="mt-3 text-xs text-gray-500">10‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Medium Tint — VLT: 50%</h3>
+              <p className="mt-2 text-sm text-gray-600">A balanced option that combines aesthetic appeal with reliable heat and UV control for everyday use.</p>
+              <p className="mt-3 text-xs text-gray-500">10‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Dark Tint — VLT: 33%</h3>
+              <p className="mt-2 text-sm text-gray-600">Reduces glare and enhances comfort while maintaining a clean, modern appearance.</p>
+              <p className="mt-3 text-xs text-gray-500">10‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Deep Black — VLT: 18%</h3>
+              <p className="mt-2 text-sm text-gray-600">Ultimate privacy and heat control for demanding conditions, with exceptional UV protection.</p>
+              <p className="mt-3 text-xs text-gray-500">10‑year warranty</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="protection" className="mt-12">
+          <h2 className="text-2xl font-bold">Protection Films</h2>
+          <p className="text-gray-600 mt-2">Solutions designed to preserve surfaces and improve longevity through advanced film technology.</p>
+
+          <div className="mt-6 grid md:grid-cols-3 gap-6">
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">TPU Windshield PPF</h3>
+              <p className="mt-2 text-sm text-gray-600">A self‑healing windshield film that resists yellowing and restores minor marks with heat, keeping windshields clear and protected.</p>
+              <p className="mt-3 text-xs text-gray-500">5‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">TPU PPF 7.5mil</h3>
+              <p className="mt-2 text-sm text-gray-600">Thick, durable paint protection film with self‑healing properties to keep painted surfaces looking pristine.</p>
+              <p className="mt-3 text-xs text-gray-500">5‑year warranty</p>
+            </article>
+
+            <article className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="font-semibold">Security Film — 4mil</h3>
+              <p className="mt-2 text-sm text-gray-600">A reinforcement film that strengthens glass and adds a layer of safety and durability to windows and doors.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact" className="mt-16 bg-white p-8 rounded-lg shadow">
+          <h2 className="text-2xl font-bold">Contact Us</h2>
+          <p className="text-gray-600 mt-2">For inquiries, installations, or partnerships, reach out and our team will respond promptly.</p>
+
+          <form className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input className="p-3 border rounded" placeholder="Full name" />
+            <input className="p-3 border rounded" placeholder="Email" />
+            <input className="p-3 border rounded md:col-span-2" placeholder="Subject" />
+            <textarea className="p-3 border rounded md:col-span-2" rows={4} placeholder="Message"></textarea>
+            <div className="md:col-span-2">
+              <button className="px-5 py-3 bg-black text-white rounded">Send Message</button>
+            </div>
+          </form>
+        </section>
+
+        <footer className="mt-16 text-center text-sm text-gray-500">
+          <p>© {new Date().getFullYear()} 3D. All rights reserved.</p>
+        </footer>
+      </main>
+    </div>
+  );
+}
