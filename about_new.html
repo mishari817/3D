@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Window Films</title>
+    <style>
+        /* ===== General Styles ===== */
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background-color: #e0e0e0; /* لون رمادي فاتح متناسق مع الشعار */
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .brand-logo {
+            font-size: 32px;
+            font-weight: bold;
+            user-select: none;
+        }
+
+        .brand-logo span:first-child {
+            color: #000; /* رقم 3 بالأسود */
+        }
+
+        .brand-logo span:last-child {
+            color: #d32f2f; /* حرف D بالأحمر */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #d32f2f;
+        }
+
+        /* ===== Hero Section ===== */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #fafafa, #eaeaea);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+
+        .hero button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #b71c1c;
+        }
+
+        /* ===== About Section ===== */
+        #about {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 36px;
+            color: #d32f2f;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 17px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* ===== Products Section ===== */
+        #products {
+            background-color: #fff;
+            padding: 80px 20px;
+        }
+
+        #products h2 {
+            text-align: center;
+            font-size: 36px;
+            color: #d32f2f;
+            margin-bottom: 40px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .product {
+            background: #f3f3f3;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .product h3 {
+            color: #111;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #555;
+            font-size: 15px;
+        }
+
+        /* ===== Contact Section ===== */
+        #contact {
+            background: #f7f7f7;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        #contact h2 {
+            color: #d32f2f;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #contact p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .contact-btn {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #e0e0e0;
+            color: #333;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="brand-logo"><span>3</span><span>D</span></div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to 3D Window Films</h1>
+        <p>Discover premium-quality window films designed for performance, clarity, and durability. At 3D, we merge innovation and protection to redefine automotive comfort and style.</p>
+        <button onclick="window.location.href='#products'">Explore Our Products</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>3D Window Films is dedicated to delivering advanced heat insulation and nano protection technology for vehicles. Our mission is to provide customers with superior products that ensure comfort, safety, and long-term performance. We continuously innovate to meet the demands of modern drivers who seek both style and function.</p>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product">
+                <img src="https://via.placeholder.com/300x200" alt="Nano Ceramic Film">
+                <h3>Nano Ceramic Film</h3>
+                <p>Advanced heat rejection and UV protection with exceptional visibility and clarity.</p>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/300x200" alt="Carbon Film">
+                <h3>Carbon Film</h3>
+                <p>Durable, non-metallic window tint with stylish appearance and superior performance.</p>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/300x200" alt="Safety Film">
+                <h3>Safety Film</h3>
+                <p>Enhanced glass protection that resists shattering and improves passenger safety.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Interested in partnering with us or learning more about our films? Let’s get in touch!</p>
+        <button class="contact-btn" onclick="window.location.href='mailto:info@3dfilms.com'">Send Email</button>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        © 2025 3D Window Films. All rights reserved.
+    </footer>
+</body>
+</html>
