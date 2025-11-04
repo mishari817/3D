@@ -1,0 +1,670 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3D — حلول عزل حراري وحماية السيارات</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --card:#0f1113;
+      --glass: rgba(255,255,255,0.04);
+      --accent-red: #e21b1b;
+      --accent-light: linear-gradient(135deg,#1b1f24 0%, #0f1113 100%);
+      --glass-2: rgba(255,255,255,0.03);
+      --glass-strong: rgba(255,255,255,0.06);
+      --muted: #9aa3ad;
+      --glass-border: rgba(255,255,255,0.06);
+      --glass-outline: rgba(255,255,255,0.02);
+      --shadow: 0 6px 30px rgba(0,0,0,0.7);
+      color-scheme: dark;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Cairo", "Inter", system-ui, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(226,27,27,0.06), transparent 6%),
+        radial-gradient(900px 400px at 90% 90%, rgba(255,255,255,0.02), transparent 5%),
+        var(--bg);
+      color:#e9eef2;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:32px;
+    }
+
+    /* Container */
+    .wrap{
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    /* Header / Nav */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    /* Logo mark: 3 (black) and D (red) */
+    .logo{
+      width:64px;
+      height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(160deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:14px;
+      border:1px solid var(--glass-outline);
+      box-shadow: var(--shadow);
+      position:relative;
+    }
+
+    .logo svg{display:block}
+
+    .brand h1{
+      margin:0;
+      font-size:20px;
+      letter-spacing:0.6px;
+      font-weight:700;
+    }
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .nav-btn{
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.04);
+      padding:10px 14px;
+      border-radius:10px;
+      color:var(--muted);
+      cursor:pointer;
+      font-weight:600;
+      transition:all .22s ease;
+    }
+    .nav-btn:hover{transform:translateY(-3px); color:#fff; border-color:var(--glass-border)}
+
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:stretch;
+      margin-bottom:36px;
+    }
+
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid var(--glass-border);
+      padding:30px;
+      border-radius:16px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-card h2{
+      margin:0 0 8px 0;
+      font-size:28px;
+      line-height:1.05;
+    }
+    .hero-card p.lead{margin:0 0 16px 0;color:var(--muted);font-size:15px}
+
+    .hero-features{display:flex;gap:12px;flex-wrap:wrap}
+    .feat{
+      background:var(--glass);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:13px;
+      color:var(--muted);
+      border:1px solid var(--glass-outline);
+    }
+
+    /* Right panel: interactive mock / canvas */
+    .panel{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:stretch;
+    }
+
+    .card-small{
+      background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+      border:1px solid var(--glass-border);
+      border-radius:12px;
+      padding:12px;
+      min-height:120px;
+    }
+
+    /* Products section */
+    .products{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:18px;
+      margin-top:12px;
+    }
+
+    .tabs{
+      display:flex;
+      gap:8px;
+      margin-bottom:12px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      padding:8px 12px;
+      border-radius:10px;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.03);
+      color:var(--muted);
+      cursor:pointer;
+      font-weight:600;
+    }
+    .tab.active{
+      background:linear-gradient(90deg, rgba(226,27,27,0.12), rgba(255,255,255,0.01));
+      color:#fff;
+      border-color: rgba(226,27,27,0.2);
+      box-shadow: 0 8px 30px rgba(226,27,27,0.06);
+      transform:translateY(-2px);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
+      gap:14px;
+    }
+
+    .prod{
+      background:var(--card);
+      border-radius:14px;
+      padding:14px;
+      border:1px solid var(--glass-border);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .prod:hover{transform:translateY(-6px); box-shadow: 0 20px 60px rgba(0,0,0,0.6)}
+    .prod h3{margin:0 0 8px 0;font-size:16px}
+    .spec{color:var(--muted);font-size:13px;margin-bottom:8px}
+    .tag{display:inline-block;padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.03);font-size:12px;color:var(--muted)}
+
+    /* Modal */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:80;
+    }
+    .modal.show{display:flex}
+    .modal .layer{
+      background:linear-gradient(180deg, rgba(7,8,10,0.82), rgba(7,8,10,0.92));
+      backdrop-filter: blur(6px);
+      padding:28px;
+      border-radius:12px;
+      width:min(920px,94%);
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow: var(--shadow);
+    }
+    .modal .close{
+      background:transparent;color:var(--muted);border:0;font-weight:700;cursor:pointer;font-size:16px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:28px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+      opacity:0.9;
+    }
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      header{flex-direction:column;align-items:flex-start;gap:12px}
+    }
+
+    /* small animations */
+    .glow{
+      position:absolute;
+      pointer-events:none;
+      filter: blur(40px);
+      opacity:0.12;
+      mix-blend-mode:screen;
+    }
+
+    /* Product badges for warranty/ VLT */
+    .badge {display:inline-block;padding:6px 8px;border-radius:8px;font-weight:700;font-size:12px}
+    .badge.red{background:rgba(226,27,27,0.14);color:var(--accent-red);border:1px solid rgba(226,27,27,0.12)}
+    .badge.silver{background:rgba(255,255,255,0.02);color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- Header -->
+    <header>
+      <div class="brand" role="banner" aria-label="3D brand">
+        <div class="logo" aria-hidden="true">
+          <!-- Logo: '3' black and 'D' red -->
+          <svg width="54" height="54" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="3D logo">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#0b0b0d" stop-opacity="1"/>
+                <stop offset="1" stop-color="#2a2a2a" stop-opacity="1"/>
+              </linearGradient>
+            </defs>
+            <!-- Black 3 -->
+            <path d="M20 30 C20 18, 40 18, 40 30 C40 42, 20 42, 20 54 C20 66, 42 66, 42 78 C42 90, 24 90, 24 78" fill="none" stroke="#0b0b0d" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- Red D -->
+            <path d="M64 24 H86 C96 24, 106 38, 86 56 C106 74, 96 88, 86 88 H64 V24 Z" fill="#e21b1b" opacity="0.98" />
+          </svg>
+        </div>
+        <div>
+          <h1>3D</h1>
+          <p>عزل حراري وحلول حماية السيارات</p>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-btn" onclick="scrollToSection('about')">عن 3D</button>
+        <button class="nav-btn" onclick="scrollToSection('products')">المنتجات</button>
+        <button class="nav-btn" onclick="scrollToSection('features')">المزايا</button>
+      </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero-card">
+        <h2 id="hero-heading">ابتكار، أداء، وحماية متقدمة للسيارات</h2>
+        <p class="lead">نقدم أفلام عزل حراري وطلاءات نانو-سيراميك عالية الجودة لراحة قيادة أفضل ومظهر أكثر فخامة.</p>
+
+        <div class="hero-features" role="list">
+          <div class="feat" role="listitem">تقنيات نانو-سيراميك متقدمة</div>
+          <div class="feat" role="listitem">حماية من الأشعة فوق البنفسجية والحرارة</div>
+          <div class="feat" role="listitem">ضمان طويل الأمد</div>
+          <div class="feat" role="listitem">مقاومة للخدوش والتغير اللوني</div>
+        </div>
+
+        <div style="height:14px"></div>
+
+        <div class="products">
+          <div class="tabs" role="tablist" aria-label="فئات المنتجات">
+            <button class="tab active" data-tab="carbon">Carbon Fiber Series</button>
+            <button class="tab" data-tab="nano">Nano Ceramic Series</button>
+            <button class="tab" data-tab="ppf">Protection Films</button>
+          </div>
+
+          <!-- Tab contents -->
+          <div id="tab-contents">
+            <!-- Carbon Fiber -->
+            <div class="tab-panel" data-panel="carbon">
+              <div class="grid" id="carbon-grid">
+                <!-- Items inserted by JS -->
+              </div>
+            </div>
+
+            <!-- Nano -->
+            <div class="tab-panel" data-panel="nano" style="display:none">
+              <div class="grid" id="nano-grid"></div>
+            </div>
+
+            <!-- PPF -->
+            <div class="tab-panel" data-panel="ppf" style="display:none">
+              <div class="grid" id="ppf-grid"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right interactive panel -->
+      <aside class="panel">
+        <div class="card-small" style="flex:1">
+          <h3 style="margin:0 0 8px 0">شعار تفاعلي</h3>
+          <p style="margin:0 0 12px 0;color:var(--muted)">اضغط زر "تشغيل الشعار" لبدء رسم تفاعلي بسيط للّوجو على كانفاس.</p>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="nav-btn" id="start-canvas">تشغيل الشعار</button>
+            <button class="nav-btn" id="stop-canvas">إيقاف الشعار</button>
+          </div>
+          <div style="height:12px"></div>
+          <canvas id="logoCanvas" width="380" height="180" style="width:100%;border-radius:8px;border:1px solid var(--glass-outline);background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));display:block"></canvas>
+        </div>
+
+        <div class="card-small">
+          <h4 style="margin:0 0 8px 0">تجربة فاخرة</h4>
+          <p style="margin:0;color:var(--muted)">تصميم ومواد مُصمّمة للمناخ الحار ومقاومة لوهج الشمس، مع توصيف فني مفصل لكل منتج داخل الموقع.</p>
+        </div>
+
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="hero-card" aria-labelledby="about-heading">
+      <h2 id="about-heading">عن 3D</h2>
+      <p class="lead">3D شركة متطورة متخصّصة في حلول السيارات، تقدم أفلام عزل حراري وطلاءات نانو-سيراميك عالية الأداء لراحة وأناقة وحماية أطول للسيارة.</p>
+
+      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:12px">
+        <div style="flex:1;min-width:220px;" class="card-small">
+          <h4 style="margin:0 0 8px 0">رؤية</h4>
+          <p style="margin:0;color:var(--muted)">تقديم حلول مبتكرة تُحسّن تجربة القيادة وتطيل عمر المركبة مع ضمانات واضحة وجودة عالية.</p>
+        </div>
+
+        <div style="flex:1;min-width:220px;" class="card-small">
+          <h4 style="margin:0 0 8px 0">التزام</h4>
+          <p style="margin:0;color:var(--muted)">المواد المعتمدة والتطبيق الاحترافي مع اختبارات أداء لكل منتج قبل التركيب.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="hero-card" style="margin-top:18px">
+      <h2>المزايا التقنية</h2>
+      <ul style="color:var(--muted);margin-top:10px">
+        <li>حماية عالية من الأشعة تحت الحمراء والـ UV لتقليل حرارة المقصورة.</li>
+        <li>تقنيات نانو تعمل على تقليل التوهّج ورفع وضوح الرؤية.</li>
+        <li>طبقات مقاومة للخدش والصفراء مع ضمانات سنوات طويلة.</li>
+        <li>التركيب الاحترافي للحفاظ على الأداء واللمظهر.</li>
+      </ul>
+    </section>
+
+    <!-- Modal for product details -->
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="layer" role="document">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h3 id="modal-title" style="margin:0">تفاصيل المنتج</h3>
+          <button class="close" id="modal-close" aria-label="إغلاق">✕</button>
+        </div>
+        <div id="modal-body" style="color:var(--muted)"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>هوية الألوان: أسود • أحمر • أبيض — تصميم يعكس القوة والدقّة والابتكار.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    /* -------------------------
+       Product data (Arabic)
+       ------------------------- */
+
+    const data = {
+      carbon: [
+        { title:"Light Shade", vlt:"69.7%", desc:"شِفرة شفافة تمنح راحة دون تعتيم الرؤية. حجب 20.7% من IR و36.6% من UV، إجمالي رفض شمسي 25.4%. مناسب لمظهر طبيعي. ضمان 5 سنوات.", warranty:"5 سنوات", irr:"20.7%", uv:"36.6%", tsr:"25.4%"},
+        { title:"Medium Shade", vlt:"46.2%", desc:"توازن بين الرؤية والحماية. حجب 32.2% IR و64.5% UV، يظل المقصورة أبرد مع وضوح جيد. ضمان 5 سنوات.", warranty:"5 سنوات", irr:"32.2%", uv:"64.5%", tsr:""},
+        { title:"Dark Shade", vlt:"33.8%", desc:"خصوصية أفضل وأداء قوي. 41.2% IRR، 75.3% UVR، إجمالي رفض شمسي 53.5%. ضمان 5 سنوات.", warranty:"5 سنوات", irr:"41.2%", uv:"75.3%", tsr:"53.5%"},
+        { title:"Deep Black Shade", vlt:"33.8%", desc:"حماية قصوى مع 53.7% حجب الأشعة تحت الحمراء و90.5% حجب الأشعة فوق البنفسجية. مثالي للطقس الحار. ضمان 5 سنوات.", warranty:"5 سنوات", irr:"53.7%", uv:"90.5%", tsr:""}
+      ],
+      nano: [
+        { title:"Ultra Clear", vlt:"70%", desc:"وضوح عالي وحماية نُخبوية. حجب 90% من IR و99% من UV. ضمان 10 سنوات.", warranty:"10 سنوات", irr:"90%", uv:"99%", tsr:""},
+        { title:"Medium Tint", vlt:"50%", desc:"توازن بين الأناقة والأداء مع 89% IRR و99% UVR. ضمان 10 سنوات.", warranty:"10 سنوات", irr:"89%", uv:"99%", tsr:""},
+        { title:"Dark Tint", vlt:"33%", desc:"راحة فائقة 90% حجب IR و99% UV مع مظهر أنيق. ضمان 10 سنوات.", warranty:"10 سنوات", irr:"90%", uv:"99%", tsr:""},
+        { title:"Deep Black", vlt:"18%", desc:"خصوصية وتحكم حراري أقصى. حجب 89% IR، 99.9% UV، إجمالي رفض شمسي 86.25%. ضمان 10 سنوات.", warranty:"10 سنوات", irr:"89%", uv:"99.9%", tsr:"86.25%"}
+      ],
+      ppf: [
+        { title:"TPU Windshield PPF", vlt:"—", desc:"فيلم حماية زجاج أمامي ذاتي الشفاء، يمنع الخدوش ويقاوم الاصفرار ويستعيد الشكل بالحرارة. ضمان 5 سنوات.", warranty:"5 سنوات"},
+        { title:"TPU PPF 7.5mil", vlt:"—", desc:"فيلم حماية طلاء متين ذاتي الشفاء ومقاوم للاصفرار للحفاظ على سطح السيارة ممتازًا. ضمان 5 سنوات.", warranty:"5 سنوات"},
+        { title:"Security Film 4mil", vlt:"—", desc:"فيلم حماية مقوّى يعزز قوة الزجاج للسلامة والمتانة الإضافية. ضمان 5 سنوات.", warranty:"5 سنوات"}
+      ]
+    };
+
+    /* -------------------------
+       Render product grids
+       ------------------------- */
+    function renderGrid(key, containerId){
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+      data[key].forEach((p, idx)=>{
+        const card = document.createElement('article');
+        card.className = 'prod';
+        card.innerHTML = `
+          <div style="display:flex;justify-content:space-between;align-items:start">
+            <h3>${escapeHtml(p.title)}</h3>
+            <div style="text-align:left">
+              <div class="badge red">${escapeHtml(p.vlt)}</div>
+            </div>
+          </div>
+          <p class="spec">${escapeHtml(truncate(p.desc,140))}</p>
+          <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+            <span class="tag">ضمان: ${escapeHtml(p.warranty)}</span>
+            ${p.irr ? `<span class="tag">IRR: ${escapeHtml(p.irr)}</span>` : ''}
+            ${p.uv ? `<span class="tag">UVR: ${escapeHtml(p.uv)}</span>` : ''}
+            ${p.tsr ? `<span class="tag">TSR: ${escapeHtml(p.tsr)}</span>` : ''}
+          </div>
+          <div style="height:10px"></div>
+          <div style="display:flex;gap:8px;justify-content:space-between;align-items:center">
+            <button class="nav-btn" data-action="details" data-key="${key}" data-idx="${idx}">عرض التفاصيل</button>
+            <button class="nav-btn" onclick="highlightSample(this)">معاينة</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function truncate(text, n){
+      if(!text) return '';
+      return text.length>n ? text.slice(0,n-1)+'…' : text;
+    }
+
+    function escapeHtml(unsafe) {
+      return (unsafe===undefined||unsafe===null) ? '' : unsafe.toString()
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    // initial render
+    renderGrid('carbon','carbon-grid');
+    renderGrid('nano','nano-grid');
+    renderGrid('ppf','ppf-grid');
+
+    /* -------------------------
+       Tabs behavior
+       ------------------------- */
+    document.querySelectorAll('.tab').forEach(tab=>{
+      tab.addEventListener('click', ()=>{
+        document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const target = tab.getAttribute('data-tab');
+        document.querySelectorAll('[data-panel]').forEach(panel=>{
+          panel.style.display = (panel.getAttribute('data-panel')===target) ? 'block' : 'none';
+        });
+      });
+    });
+
+    /* -------------------------
+       Modal behavior (details)
+       ------------------------- */
+    document.body.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-action="details"]');
+      if(btn){
+        const key = btn.getAttribute('data-key');
+        const idx = Number(btn.getAttribute('data-idx'));
+        openModal(data[key][idx]);
+      }
+    });
+
+    function openModal(prod){
+      const modal = document.getElementById('modal');
+      modal.classList.add('show');
+      modal.setAttribute('aria-hidden','false');
+      const body = document.getElementById('modal-body');
+      document.getElementById('modal-title').textContent = prod.title;
+      body.innerHTML = `
+        <p style="margin-top:0;color:var(--muted)">${escapeHtml(prod.desc)}</p>
+        <ul style="color:var(--muted);margin-top:8px">
+          ${prod.vlt?`<li><strong>VLT:</strong> ${escapeHtml(prod.vlt)}</li>`:''}
+          ${prod.irr?`<li><strong>IR Rejection:</strong> ${escapeHtml(prod.irr)}</li>`:''}
+          ${prod.uv?`<li><strong>UV Blocking:</strong> ${escapeHtml(prod.uv)}</li>`:''}
+          ${prod.tsr?`<li><strong>Total Solar Rejection:</strong> ${escapeHtml(prod.tsr)}</li>`:''}
+          <li><strong>ضمان:</strong> ${escapeHtml(prod.warranty)}</li>
+        </ul>
+        <div style="height:12px"></div>
+        <div style="display:flex;gap:8px">
+          <button class="nav-btn" onclick="closeModal()">إغلاق</button>
+          <button class="nav-btn" onclick="simulateInstall()">محاكاة التركيب</button>
+        </div>
+      `;
+    }
+
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    function closeModal(){
+      const modal = document.getElementById('modal');
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden','true');
+    }
+
+    /* -------------------------
+       Simulate an install (example interaction without contact)
+       ------------------------- */
+    function simulateInstall(){
+      const body = document.getElementById('modal-body');
+      body.innerHTML += `<p style="color:var(--muted);margin-top:12px">محاكاة: حددنا مواد ملائمة للمناخ الحار ووقت تركيب تقريبي 3-5 ساعات حسب حجم السيارة.</p>`;
+    }
+
+    /* -------------------------
+       Small helper: preview highlight
+       ------------------------- */
+    function highlightSample(el){
+      el.textContent = "جارِ المعاينة…";
+      setTimeout(()=>{ el.textContent = "معاينة"; }, 900);
+    }
+
+    /* -------------------------
+       Canvas logo animation (simple)
+       ------------------------- */
+    const canvas = document.getElementById('logoCanvas');
+    const ctx = canvas.getContext('2d');
+    let animId = null;
+    let t = 0;
+    function drawFrame(){
+      const w = canvas.width;
+      const h = canvas.height;
+      ctx.clearRect(0,0,w,h);
+
+      // background glossy gradient
+      const g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0, 'rgba(255,255,255,0.02)');
+      g.addColorStop(1, 'rgba(0,0,0,0.02)');
+      ctx.fillStyle = g;
+      ctx.fillRect(0,0,w,h);
+
+      // animated gloss
+      const gloss = ctx.createLinearGradient(0,0,w,0);
+      gloss.addColorStop(0, 'rgba(255,255,255,0.0)');
+      gloss.addColorStop(0.5 + 0.5*Math.sin(t*0.02), 'rgba(255,255,255,0.06)');
+      gloss.addColorStop(1, 'rgba(255,255,255,0.0)');
+      ctx.fillStyle = gloss;
+      ctx.fillRect(0,0,w,h);
+
+      // draw '3' (black stroked)
+      ctx.save();
+      ctx.translate(70,90);
+      ctx.scale(1.2,1.2);
+      ctx.lineWidth = 10;
+      ctx.lineCap = 'round';
+      ctx.strokeStyle = '#0b0b0d';
+      ctx.beginPath();
+      ctx.moveTo( -10, -24 );
+      ctx.bezierCurveTo( 30, -40, 56, -40, 56, -8 );
+      ctx.bezierCurveTo(56, 18, 20, 18, 20, 36 );
+      ctx.bezierCurveTo(20, 62, 68, 62, 68, 36 );
+      ctx.stroke();
+      ctx.restore();
+
+      // draw 'D' in red with subtle animation
+      ctx.save();
+      ctx.translate(230,50);
+      ctx.scale(1.0,1.0);
+      ctx.beginPath();
+      ctx.moveTo(0,0);
+      ctx.lineTo(0,80);
+      ctx.quadraticCurveTo(58,80,70,40);
+      ctx.quadraticCurveTo(58,8,0,0);
+      ctx.closePath();
+      ctx.fillStyle = '#e21b1b';
+      // pulsate fill
+      const alpha = 0.85 + 0.05 * Math.sin(t*0.06);
+      ctx.globalAlpha = alpha;
+      ctx.fill();
+      ctx.restore();
+
+      // shimmer stroke
+      ctx.save();
+      ctx.globalCompositeOperation = 'lighter';
+      ctx.beginPath();
+      ctx.moveTo(40,25);
+      ctx.lineTo(320,25);
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = 'rgba(255,255,255,' + (0.02+0.02*Math.sin(t*0.07)) + ')';
+      ctx.stroke();
+      ctx.restore();
+
+      t += 1;
+      animId = requestAnimationFrame(drawFrame);
+    }
+
+    document.getElementById('start-canvas').addEventListener('click', ()=>{
+      if(!animId){
+        animId = requestAnimationFrame(drawFrame);
+      }
+    });
+
+    document.getElementById('stop-canvas').addEventListener('click', ()=>{
+      if(animId){
+        cancelAnimationFrame(animId);
+        animId = null;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+      }
+    });
+
+    /* -------------------------
+       small util: smooth scroll
+       ------------------------- */
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(!el) return;
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+
+    /* Accessibility: close modal on ESC */
+    window.addEventListener('keydown', (e)=>{
+      if(e.key==='Escape') closeModal();
+    });
+
+    // ensure canvas size matches pixel ratio
+    function fixCanvas(){
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(canvas.clientWidth * dpr);
+      canvas.height = Math.floor(canvas.clientHeight * dpr);
+      ctx.setTransform(dpr,0,0,dpr,0,0);
+    }
+    window.addEventListener('resize', fixCanvas);
+    fixCanvas();
+
+  </script>
+</body>
+</html>
