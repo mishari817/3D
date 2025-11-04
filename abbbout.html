@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Window Films</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+    }
+
+    header {
+      background-color: #e0e0e0; /* لون متناسق مع الشعار */
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .brand-logo {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .brand-logo span:first-child {
+      color: #000;
+    }
+
+    .brand-logo span:last-child {
+      color: #d32f2f;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #d32f2f;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+      background: linear-gradient(135deg, #fafafa, #eaeaea);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .hero button {
+      background-color: #d32f2f;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .hero button:hover {
+      background-color: #b71c1c;
+    }
+
+    .products {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .color-box {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+    }
+
+    .product-info {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #e0e0e0;
+      color: #333;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-logo"><span>3</span><span>D</span></div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="about">
+    <h1>Welcome to 3D Window Films</h1>
+    <p>Discover high-quality window films designed for performance, clarity, and durability. We bring innovation and protection together for your comfort and safety.</p>
+    <button>Learn More</button>
+  </section>
+
+  <section class="products" id="products">
+    <h2 style="text-align:center; font-size:28px; margin-bottom:40px;">Our Products</h2>
+
+    <div class="product-card">
+      <div class="product-title">Nano Ceramic Film – 15% Transparency</div>
+      <div class="color-box" style="background-color: #1a1a1a;"></div>
+      <div class="product-info">
+        <b>Color:</b> Very dark charcoal (almost black)<br>
+        <b>Description:</b> Advanced heat rejection film that provides superior UV and infrared protection with maximum privacy.
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-title">Carbon Film – 35% Transparency</div>
+      <div class="color-box" style="background-color: #4d4d4d;"></div>
+      <div class="product-info">
+        <b>Color:</b> Medium gray<br>
+        <b>Description:</b> Durable, non-metallic window tint with stylish appearance and excellent heat resistance.
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-title">Hybrid Film – 50% Transparency</div>
+      <div class="color-box" style="background-color: #808080;"></div>
+      <div class="product-info">
+        <b>Color:</b> Light gray / smoke tint<br>
+        <b>Description:</b> Balanced performance film combining visibility and protection with a refined aesthetic.
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-title">Safety Film – 70% Transparency</div>
+      <div class="color-box" style="background-color: #cfcfcf;"></div>
+      <div class="product-info">
+        <b>Color:</b> Very light gray (almost clear)<br>
+        <b>Description:</b> Enhanced glass protection that resists shattering and improves passenger safety while maintaining clarity.
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    © 2025 3D Window Films. All rights reserved.
+  </footer>
+</body>
+</html>
